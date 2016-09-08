@@ -1,0 +1,39 @@
+<div class="wrap">
+  <div class="grid">
+    <div class="grid__cell grid__cell--20">
+      <section class="section section--left">
+        <h2 class="section__title">Characters</h2>
+        <ul class="nav">
+          <% for (var i in site.data.characters) {%>
+            <li class="nav__item">
+              <a href="/characters/<%= site.data.characters[i].slug %>/"><%= site.data.characters[i].title %></a>
+            </li>
+          <% } %>
+        </ul>
+      </section>
+    </div>
+    <div class="grid__cell grid__cell--80">
+      <section class="section">
+        <div class="character">
+          <div class="character__image">
+            <% if( page.imageUrl) { %>
+              <img src="<%- page.imageUrl %>" />
+            <% } %>
+          </div>
+          <h1 class="character__title"><%= page.title %></h1>
+          <ul class="meta">
+            <li class="meta__item">
+              <strong>Actor:</strong> <%= page.actorName %>
+            </li>
+            <li class="meta__item">
+              <strong>Number of episodes:</strong> <%= page.episodes %>
+          </ul>
+          <div class="character__content">
+            <%- page.content %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

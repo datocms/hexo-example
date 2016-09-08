@@ -1,0 +1,12 @@
+<div class="wrap">
+  <section class="section">
+    <h2 class="section__title">Characters</h2>
+    <div class="grid">
+      <% for (var i in site.data.characters) {%>
+        <div class="grid__cell grid__cell--20">
+          <%- partial('_partial/character_preview.ejs', {character: site.data.characters[i]}) %>
+        </div>
+      <% } %>
+    </div>
+  </section>
+</div>

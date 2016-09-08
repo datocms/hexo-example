@@ -1,0 +1,30 @@
+<% category = site.data.seasons.find(function(s) { return s.title === page.category }) %>
+
+<div class="wrap">
+  <section class="section">
+    <div class="season">
+      <div class="season__image">
+        <img src="<%= category.imageUrl %>" />
+      </div>
+      <div class="season__content">
+        <h2 class="season__title"><%= page.category %></h2>
+        <%- markdown(category.overview) %>
+        <hr/>
+        <div class="grid">
+          <% page.posts.each(function(post) { %>
+            <div class="grid__cell grid__cell--50">
+              <%- partial('_partial/episode_preview.ejs', { episode: post }) %>
+            </div>
+          <% }) %>
+        </div>
+        <div class="pagination">
+          <% if (page.prev){ %>
+              <a class="pagination__prev" href="<%- config.root %><%- page.prev_link %>">Previous Page</a>
+          <% } %>
+          <% if (page.next){ %>
+              <a class="pagination__next" href="<%- config.root %><%- page.next_link %>">Next Page</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+</div>

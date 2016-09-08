@@ -1,0 +1,56 @@
+<div class="wrap">
+  <div class="grid">
+    <div class="grid__cell grid__cell--20">
+      <section class="section section--left">
+        <h2 class="section__title">Season episodes</h2>
+        <ul class="nav">
+          <% site.posts.filter(function(p) { return p.categories.first().name === page.categories.first().name }).reverse().each(function(post) { %>
+            <li class="nav__item">
+              <a href="<%= url_for(post.path) %>">
+                <%= post.title %>
+                <div class="nav__item__details">
+                  Episode #<%= post.episodeNumber %>
+                </div>
+              </a>
+            </li>
+          <% }) %>
+        </ul>
+      </section>
+    </div>
+    <div class="grid__cell grid__cell--80">
+      <section class="section">
+        <div class="character">
+          <div class="character__image">
+            <% if( page.imageUrl) { %>
+              <img src="<%- page.imageUrl %>" />
+            <% } %>
+          </div>
+          <h1 class="character__title"><%- page.title %></h1>
+          <ul class="meta">
+            <li class="meta__item">
+              <strong>Season:</strong>
+              <a href="<%= url_for(page.categories.first().path) %>"><%- page.categories.first().name %></a>
+            </li>
+            <li class="meta__item">
+              <strong>Episode number: </strong><%- page.episodeNumber %>
+            </li>
+            <% if( page.director) { %>
+              <li class="meta__item">
+                <strong>Director: </strong><%- page.director %>
+              </li>
+            <% } %>
+            <li class="meta__item">
+              <strong>First aired:</strong> <%- date(page.date, 'DD/MM/YYYY') %>
+            </li>
+            <li class="meta__item">
+              <strong>Rating:</strong> <%- page.rating %>
+            </li>
+          </ul>
+          <div class="character__content">
+            <%- page.content %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

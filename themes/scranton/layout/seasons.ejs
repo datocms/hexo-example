@@ -1,0 +1,25 @@
+<div class="wrap">
+  <section class="section">
+    <h2 class="section__title">Seasons</h2>
+    <div class="grid">
+      <% site.categories.each(function(category) {%>
+        <% categoryData = site.data.seasons.find(function(s) { return s.title === category.name }) %>
+        <div class="grid__cell grid__cell--33">
+          <a href="<%= url_for(category.path) %>" class="season-preview">
+            <div class="season-preview">
+              <div class="season-preview__meta" style="background-image: url('<%= categoryData.bgUrl %>')">
+                <div class="season-preview__image">
+                  <img src="<%= categoryData.thumbnailUrl %>" />
+                </div>
+                <h6 class="season-preview__title"><%= categoryData.title %></h6>
+                <div class="season-preview__description">
+                  <%- truncate(categoryData.overview, {length: 130}) %>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% }); %>
+    </div>
+  </section>
+</div>

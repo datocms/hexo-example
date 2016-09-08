@@ -1,0 +1,5 @@
+<header class="main-navigation">
+  <% for (var i in config.menu){ %>
+    <a href="<%- url_for(config.menu[i]) %>" class="main-navigation__item"><%= i %></a>
+  <% } %>
+</header>

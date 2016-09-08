@@ -1,0 +1,40 @@
+<div class="wrap">
+  <div class="grid">
+    <div class="grid__cell grid__cell--20">
+      <section class="section section--left">
+        <h2 class="section__title">Seasons</h2>
+        <ul class="nav">
+          <% site.categories.reverse().each(function(category) {%>
+            <li class="nav__item">
+              <a href="<%= url_for(category.path) %>"><%= category.name %></a>
+            </li>
+          <% }); %>
+        </ul>
+      </section>
+    </div>
+    <div class="grid__cell grid__cell--80">
+      <section class="section">
+        <h2 class="section__title">
+          Latest episodes
+        </h2>
+        <div class="grid">
+          <% page.posts.each(function(post) { %>
+            <div class="grid__cell grid__cell--50">
+            <%- partial('_partial/episode_preview.ejs', { episode: post }) %>
+            </div>
+          <% }) %>
+        </div>
+        <div class="pagination">
+
+          <% if (page.prev){ %>
+              <a class="pagination__prev" href="<%- config.root %><%- page.prev_link %>">Previous Page</a>
+          <% } %>
+          <% if (page.next){ %>
+              <a class="pagination__next" href="<%- config.root %><%- page.next_link %>">Next Page</a>
+          <% } %>
+
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

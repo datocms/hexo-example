@@ -1,0 +1,18 @@
+<div class="header">
+  <div class="wrap">
+    <% if(page.path === "index.html") { %>
+      <div class="header__inner">
+    <% } else { %>
+      <div class="header__inner header__inner--internal">
+    <% } %>
+      <div class="header__content">
+        <h1 class="header__title">
+          <%= site.data.homepage.siteName %>
+        </h1>
+        <p class="header__tagline">
+          <%= site.data.homepage.tagLine %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
