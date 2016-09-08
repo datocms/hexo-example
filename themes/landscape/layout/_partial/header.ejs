@@ -1,0 +1,18 @@
+<div class="header">
+  <div class="wrap">
+    <% if(is_current("")) { %>
+      <div class="header__inner">
+    <% } else { %>
+      <div class="header__inner header__inner--internal">
+    <% } %>
+      <div class="header__content">
+        <h1 class="header__title">
+          <%= site.data.homepage.site_name %>
+        </h1>
+        <p class="header__tagline">
+          <%= site.data.homepage.tag_line %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
