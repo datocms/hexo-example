@@ -60,7 +60,7 @@ module.exports = (dato, root) => {
     })
   );
 
-  root.directory('source/characters/', dir => {
+  root.directory('source/character/', dir => {
     characters.forEach(character => {
       dir.createPost(
         `${character.slug({ prefixWithId: false })}/index.md`,
