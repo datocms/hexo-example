@@ -1,0 +1,9 @@
+{
+  "name": "Hexo DatoCMS",
+  "previewImage": "https://raw.githubusercontent.com/datocms/gatsby-portfolio/master/preview.png",
+  "templateId": "151",
+  "deploymentType": "static",
+  "buildCommand": "yarn build",
+  "buildDirectory": "build",
+  "datocmsApiTokenEnvName": "DATO_API_TOKEN"
+}
